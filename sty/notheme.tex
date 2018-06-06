@@ -1,0 +1,15 @@
+\setbeamertemplate{frametitle}
+{\begin{centering}\smallskip
+    \insertframetitle\par
+    \smallskip\end{centering}}
+\setbeamertemplate{itemize item}{$\bullet$}
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{title}{fg=black}
+
+\newcommand{\topline}{%
+  \tikz[remember picture,overlay] {%
+    \draw[black, line width=0.2em] (
+    [yshift=-1cm]current page.north west)
+             -- ([yshift=-1cm,xshift=0.95\paperwidth]current page.north west);}}
