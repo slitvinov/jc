@@ -27,7 +27,7 @@ function farazmand()
   dlmwrite('q.txt', [t q], ' ');
   dlmwrite('p.txt', [t p], ' ');
   dlmwrite('v.txt', [t v], ' ');
-endfunction
+end
 
 function err(fmt, varargin)
   global me
