@@ -1,0 +1,2 @@
+assume(e> 0, N > 0) $
+solve(abs(f[N](x[0] + e) - f[N](x[0])) = e*exp(N*l), l);

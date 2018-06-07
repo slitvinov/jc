@@ -1,0 +1,2 @@
+# TEST: 0
+echo 500 0.001 1000 100 | ./ode > ode.out.txt

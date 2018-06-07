@@ -1,0 +1,10 @@
+load("dynamics")$
+
+e: [v, -v/10 + x - x^3/4 + 2.5*sin(2*t)] $
+i: [0, 0] $
+
+s: rk(e, [x, v], i, [t, 0, 100, 0.1]) $
+p: map( lambda([e], [second(e), third(e)]), s) $
+
+draw2d(points_joined = true, point_type = none, points(s));
+draw2d(points_joined = true, point_type = none, line_width=4, points(p));

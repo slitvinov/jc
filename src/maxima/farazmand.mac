@@ -1,0 +1,37 @@
+load("dlsode") $
+load("rkf45")  $
+
+e: [
+   'al*'x + 'om*'y + 'al*'x^2 + 2*'om*'x*'y + 'z^2,
+  -'om*'x + 'al*'y - 'om*'x^2 + 2*'al*'x*'y,
+  -'la*'z - ('la + 'be)*'x*'z] $
+L: jacobian(e, ['x, 'y, 'z]) $
+
+u: ['x, 'y, 'z];
+u0: [0, 0.01, 0.01] $
+u1: ['x =  0, 'y = 0, 'z = 0] $
+u2: ['x = -1, 'y = 0, 'z = 0] $
+
+p: ['al = 0.01, 'om = 2*%pi, 'la = 0.1, 'be = 0.1];
+
+up: ['xp, 'yp, 'zp];
+de: L.up - (L.up).transpose(up) * up;
+
+e0: ev(e, p);
+dt: 10;
+t0: 0;
+n : 100;
+txyz: [];
+
+for i: 1 thru n do (
+push(cons(t0, u0), txyz),
+txyz0: rkf45(e0, u, u0, ['t, t0, t0 + dt], full_solution = false, report = true),
+u0: rest(txyz0),
+t0: first(txyz0));
+
+t:   map('first,  txyz) $
+x:   map('second, txyz) $
+y:   map('third, txyz)  $
+z:   map('fourth, txyz) $
+
+draw3d(points_joined = true, point_type = none, points(x, y, z));
