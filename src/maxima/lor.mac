@@ -1,0 +1,12 @@
+load("dynamics")$
+load("util.mac")$
+
+f: ['s*('y - 'x), -'x*'z + 'r*'x - 'y, 'x*'y - 'b*'z];
+param: ['b = 8/3, 's = 10, 'r = 28];
+
+f0: ev(f, param) $
+u0: [1, 1, 1] $
+
+s: rk(f0, ['x, 'y, 'z], u0, ['t, 0, 20, 0.01]) $
+
+write_data(s, "q0") $
