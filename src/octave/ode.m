@@ -100,13 +100,13 @@ endfunction
 param = [4.0, 16.0, 45.92];
 
 t0 = 0;
-t  = (0:0.001:0.001)';
+t  = (0:0.001:0.1)';
 p0 = [1, 0, 0];
 q0 = [1, 1, 1];
 Q0 = [q0, p0];
 Q  = lsode(@(x, t) dF(x, param), Q0, t);
 
-nchunk = 10000;
+nchunk = 1000;
 [t, Q] = chain(@(x, t) dF(x, param),
 	       @norm, Q0, t0, t, nchunk);
 dlmwrite("q.txt", [t Q], ' ');

@@ -1,4 +1,4 @@
-#set term pdf
+set term pdf
 set output "main.pdf"
 
 unset key
