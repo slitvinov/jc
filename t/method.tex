@@ -1,5 +1,4 @@
 \bframe{Discrete}
-\topline
 \begin{equation*}
 \dot{\mathbf{y}} = \mathbf{K}(t) \mathbf{y}
 \end{equation*}
@@ -12,25 +11,25 @@
 \eframe
 
 \bframe{Discrete}
-\topline
 \begin{center}
   \includegraphics[width=\textwidth]{i/wolf.pdf}
 \end{center}
 \eframe
 
 \bframe{Continues}
-\topline
-
 \begin{equation*}
-\dot{\mathbf{y}} = \mathbf{K}(t) \mathbf{y}
+\dot{\mathbf{y}} = \mathbf{K} \mathbf{y}, \quad
+\dot{\mathbf{Y}} = \mathbf{K} \mathbf{Y}
 \end{equation*}
 
 \begin{equation*}
-\dot{\mathbf{Y}} = \mathbf{K}(t) \mathbf{Y}
+\mathbf{Y} = \mathbf{Q} \mathbf{R}
 \end{equation*}
 
 \begin{equation*}
-
+\dot{\mathbf{Q}} = \text{RHS}(t, \mathbf{Q}),
+\quad
+\dot{\mathbf{R}} = \text{RHS}(t, \mathbf{R})
 \end{equation*}
 
 \eframe
