@@ -1,0 +1,14 @@
+d: 2;
+A: genmatrix('A, d, d);
+A: (A - transpose(A))/2;
+
+Q: ident(d);
+
+H0: transpose(Q) . A . Q;
+
+h[i, j]:= if i > j then H0[i, j] elseif i < j then -H0[i, j] else 0;
+
+H: genmatrix(h, d, d);
+
+(Q . H);
+

@@ -1,0 +1,74 @@
+\bframe{Setup}
+\topline
+
+\begin{equation} \label{eq:main}
+\dot{x_i} = F_i(\mathbf{x})
+\end{equation}
+
+\begin{equation}
+\dot{x_i} + \delta \dot{x_i} = F_i(\mathbf{x} + \delta \mathbf{x})
+\end{equation}
+
+\begin{equation} \label{eq:dot}
+\delta \dot{x_i} = \frac{\partial F_i(\mathbf{x})}{\partial x_j} \delta x_j
+\end{equation}
+
+To solve~(\ref{eq:dot}) we need
+\begin{itemize}
+\item $\mathbf{x}(t)$ : solution of~(\ref{eq:main})
+\item Initial time $t = t_o$
+\item Initial condition $\delta \mathbf{x}^0$
+\end{itemize}
+
+There is an ortonalmal set $\delta \mathbf{x}^0_i$:
+\begin{equation*}
+\lambda_i = \lim_{t\to\infty} \frac{1}{t - t_0} \log | \delta \mathbf{x_i} |
+\end{equation*}
+
+$\lambda_i$ does not depend on $t_0$ and $\mathbf{x}(t)$ (Oseledec
+theorem)
+
+\eframe
+
+\bframe{``Typical'' and ``non-typical'' perturbations}
+
+\begin{equation*}
+\delta \dot{x_i} = \frac{\partial F_i(\mathbf{x})}{\partial x_j} \delta x_j
+\end{equation*}
+
+\begin{equation*}
+\dot{\mathbf{y}} = \mathbf{K}(t) \mathbf{y}
+\end{equation*}
+
+\begin{equation*}
+\lambda_1 > \lambda_2 > \ldots > \lambda_N
+\end{equation*}
+
+\begin{equation*}
+\mathbf{y}^1,\ \mathbf{y}^2,\ \ldots,\ \mathbf{y}^N
+\end{equation*}
+
+Typical vector grow with $\lambda_1$. Non-typical vectors are
+ortogonal to $\mathbf{y}^1$ and grow with $\lambda_2$ etc.
+
+\eframe
+
+\bframe{Extracting $\lambda_2$}
+Two typical vectors $\mathbf{u}(t)$ and $\mathbf{v}(t)$
+
+\begin{align*}
+    \mathbf{u}
+    \times
+    \mathbf{v}
+    \propto
+    (\mathbf{u}^1 + \mathbf{u}^2)
+    \times
+    (\mathbf{v}^1 + \mathbf{v}^2)
+    \propto
+    \mathbf{y}^1
+    \times
+    \mathbf{y}^2
+    \propto
+    e^{t(\lambda_1 + \lambda_2)}
+\end{align*}
+\eframe

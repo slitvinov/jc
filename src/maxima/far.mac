@@ -17,6 +17,8 @@ p: ['al = 0.01, 'om = 2*%pi, 'la = 0.1, 'be = 0.1];
 up: ['xp, 'yp, 'zp];
 de: L.up - (L.up).transpose(up) * up;
 
+fullratsimp((L.up).transpose(up));
+
 e0: ev(e, p);
 dt: 10;
 t0: 0;
