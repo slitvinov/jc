@@ -1,3 +1,6 @@
+: ${PDFTOPPM=pdftoppm}
+: ${CONVERT=convert}
+
 f="$1"; shift
 d="$1"; shift
 
@@ -7,9 +10,9 @@ mkdir "$t"
 
 trap 'rm -f $t' 1 2 3 4 15
 
-pdftoppm "$f" $t/i
+"$PDFTOPPM" "$f" $t/i
 if test $? -ne 0
-then echo >&2 '[pdfpng] pdftoppm faild'
+then echo >&2 '[pdfpng] "$PDFTOPPM" faild'
      exit 2
 fi
 
@@ -17,7 +20,7 @@ mkdir -p "$d"
 for i in $t/*.ppm
 do b=`basename "$i" .ppm`
    b=`echo $b | sed 's/^i-//g'`
-   convert $i $d/$b.png
+   "$CONVERT" $i $d/$b.png
    if test $? -ne 0
    then echo >&2 '[pdfpng] fail to conver'
         exit 2
