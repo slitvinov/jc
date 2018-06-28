@@ -11,7 +11,10 @@ $M.pdf: $M.tex $t $i
 	pdflatex $a $< && \
 	pdflatex $a $<
 
-.PHONY: clean
+png: $M.pdf
+	tool/pdfpng $M.pdf png
+
+.PHONY: clean png
 clean:
 	@echo clean
 	@rm -f $M.aux $M.log $M.nav $M.out $M.pdf $M.snm $M.toc
