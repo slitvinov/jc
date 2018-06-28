@@ -4,8 +4,19 @@
 \end{equation*}
 
 \begin{equation*}
-  \dot{\mathbf{Y}} = \mathbf{K} \mathbf{Y} - (\mathbf{Y}^T \mathbf{K} \mathbf{Y}) \mathbf{Y}
+  \dot{\mathbf{Y}} = \mathbf{K} \mathbf{Y} - \mathbf{Y} \mathbf{Y}^T \mathbf{K} \mathbf{Y}
 \end{equation*}
+
+
+\begin{block}{Bridges}
+Proposed by Drury80 [...] Davey83 argued that this [form is
+numerically unstable] and replaced it with Equation (2.6) with this
+form leads to a stable and efficient numerical algorithm . This
+formulation [...] was the starting point for further developments
+(cf. Meyer86; van Loon88; Dieci94), and continuous orthogonalization
+is now a basic method for computing Lyapunov exponents in dynamical
+systems.
+\end{block}
 
 \eframe
 
